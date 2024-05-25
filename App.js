@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Image, Alert } from 'react-native'; // Importe o componente Image
+import { StyleSheet, Text, View, Image, Alert } from 'react-native'; 
 
 // Importar as imagens
 import imagem01 from './assets/1.png';
@@ -9,6 +9,9 @@ import imagem03 from './assets/3.png';
 import imagem04 from './assets/4.png';
 import imagem05 from './assets/5.png';
 import imagem06 from './assets/6.png';
+
+
+
 
 
 
@@ -30,11 +33,18 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
+    
+    <View style={styles.box}>
+    <Text style={styles.text}>JOGO DO DADO</Text>
+    <Text style={styles.subtitulo}>Clique no dado para o número ser sorteado</Text>
+
       {/* Exibir a imagem usando o componente Image */}
     <TouchableOpacity onPress={changeImage}>
       <Image source={enderecoImage} style={styles.image}></Image>
       <StatusBar style="auto" />
     </TouchableOpacity>
+    <Text style={styles.rodape}>By Nicoly Oliveira :)</Text>
+    </View>
     </View>
   );
 }
@@ -42,13 +52,50 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#4B0082',
     alignItems: 'center',
     justifyContent: 'center',
+  
   },
-  // Adicione um estilo para a imagem, se necessário
+ 
   image: {
-    width: 200, // Ajuste o tamanho conforme necessário
-    height: 200, // Ajuste o tamanho conforme necessário
+    width: 200, 
+    height: 200, 
+    marginTop: 20,
+  },
+
+  text: {
+    fontSize: '32px',
+    margin: '0 0 2% 0',
+    fontFamily: 'Arial',
+    color: '#4B0082',
+    fontWeight: 'bold',
+    
+  },
+
+  subtitulo:{
+    fontSize: '22px',
+    fontFamily: 'Arial',
+    color: '#4B0082',
+  },
+
+  rodape: {
+    marginTop: 70,
+    color: '#4B0082',
+  },
+
+  box: {
+    width: 600, 
+    height: 600, 
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // Sombra para iOS
+    shadowColor: '#000',
+    shadowOffset: { width: 10, height: 8 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    // Sombra para Android
+    elevation: 5,
   },
 });
